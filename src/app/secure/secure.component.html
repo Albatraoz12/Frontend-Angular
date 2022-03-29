@@ -1,0 +1,19 @@
+<h1 *ngIf="user">Hello {{ user.first_name }} {{ user.last_name }}</h1>
+<p>Would you like to see your lists ?</p>
+
+<div class="d-flex justify-content-start align-items-center">
+  <ul class="nav nav-pills">
+    <li class="nav-link active" [class.active]="viewMode == 'likes'">
+      <a (click)="viewMode = 'likes'">Recipes You Liked</a>
+    </li>
+    <li class="nav-link active" [class.active]="viewMode == 'list'">
+      <a (click)="viewMode = 'list'">List View</a>
+    </li>
+  </ul>
+</div>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'likes'">All Recipes You Liked</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Press some button</div>
+</div>
