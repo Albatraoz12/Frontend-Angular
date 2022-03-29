@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h1>Welcome</h1>
+  <p class="lead">You are now at the HomeComponent</p>
+  <a routerLink="/login" *ngIf="!loggedIn" class="btn btn-lg btn-primary"
+    >Login In</a
+  >
+  <a routerLink="/login" *ngIf="loggedIn" class="btn btn-lg btn-primary"
+    >Log Out</a
+  >
+</div>
