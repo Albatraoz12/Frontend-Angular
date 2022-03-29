@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  // title = 'frontend';
   loggedIn = false;
   ngOnInit(): void {
     this.loggedIn = localStorage.getItem('token') !== null;
@@ -14,5 +13,6 @@ export class AppComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
   }
 }

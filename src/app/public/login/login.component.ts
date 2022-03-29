@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  url = 'http://localhost:8000/oauth/token';
+  url = 'http://localhost:8000/api/login';
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -30,18 +30,16 @@ export class LoginComponent implements OnInit {
     const formData = this.form.getRawValue();
 
     const data = {
-      username: formData.email,
+      email: formData.email,
       password: formData.password,
-      grant_type: 'password',
-      client_id: '2',
-      client_secret: 'ocAOFawIruC6sBJy5FelblOilx6FODyqwNnxAYnf',
-      scope: '*',
     };
 
     this.http.post(this.url, data).subscribe(
       (result: any) => {
-        localStorage.setItem('token', result.access_token);
+        localStorage.setItem('token', result.data.token);
+        localStorage.setItem('id', result.data.user.id);
         this.router.navigate(['/secure']);
+        // console.log(result.data);
       },
       (error: any) => {
         console.log('error');
