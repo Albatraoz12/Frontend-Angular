@@ -13,8 +13,7 @@ export class RecipeService {
   query: string = 'chicken';
   health: string = 'vegan';
   mealType: string = 'Dinner';
-  // private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&app_id=7423a234&app_key=a1b3d726f7ccba8b35d541c90ae0d9d6&health=gluten-free&mealType=Dinner
-  // `;
+
   private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=`;
 
   getAllRecipe(): Observable<Recipe[]> {
