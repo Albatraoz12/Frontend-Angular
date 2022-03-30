@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from './recipe.service';
-import { Root } from './interface/root';
 import { Recipe } from './recipe';
 
 @Component({
