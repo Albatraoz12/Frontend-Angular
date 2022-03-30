@@ -1,9 +1,29 @@
 <div class="jumbotron text-center">
   <h1>{{ title }}</h1>
-  <form>
+  <form class="mb-4">
     <input type="text" placeholder="Search Food" />
   </form>
-  <div class="container" *ngFor="let i of recipe">
-  <h1>{{ i.label }}</h1>
 </div>
+<div class="container">
+  <div
+    class="card mb-3"
+    style="max-width: 540px; margin: 0 auto"
+    *ngFor="let i of recipe"
+  >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ i.image }}" class="img-fluid rounded-start" alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.label }}</h5>
+          <!-- <p class="card-text">{{ i.calories }}</p> -->
+          <p class="card-text">
+            <small class="text-muted">{{ i.mealType }}</small>
+          </p>
+          <a class="btn btn-primary">To Recipe</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

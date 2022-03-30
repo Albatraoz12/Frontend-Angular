@@ -5,4 +5,5 @@ export interface Recipe {
   url: string;
   ingredientLines: string[];
   calories: number;
+  mealType: string[];
 }
