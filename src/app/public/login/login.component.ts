@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', result.data.token);
         localStorage.setItem('id', result.data.user.id);
         this.router.navigate(['/secure']);
-        // console.log(result.data);
       },
       (error: any) => {
         console.log('error');

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SecureComponent implements OnInit {
   user: any;
-  viewMode = 'map';
+  viewMode = 'likes';
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
