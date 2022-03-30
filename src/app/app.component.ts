@@ -9,6 +9,7 @@ export class AppComponent implements OnInit {
   loggedIn = false;
   ngOnInit(): void {
     this.loggedIn = localStorage.getItem('token') !== null;
+    //kolla hemma om man kan lägga till ('id')
   }
 
   logout() {
