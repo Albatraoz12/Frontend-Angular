@@ -8,13 +8,29 @@ import { Recipe } from './recipe';
 })
 export class RecipeService {
   constructor(private httpClient: HttpClient) {}
-
-  private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&app_id=7423a234&app_key=a1b3d726f7ccba8b35d541c90ae0d9d6&health=gluten-free&mealType=Dinner
-  `;
+  app_id: string = '7423a234';
+  app_key: string = 'a1b3d726f7ccba8b35d541c90ae0d9d6';
+  query: string = 'chicken';
+  health: string = 'vegan';
+  mealType: string = 'Dinner';
+  // private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&app_id=7423a234&app_key=a1b3d726f7ccba8b35d541c90ae0d9d6&health=gluten-free&mealType=Dinner
+  // `;
+  private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=`;
 
   getAllRecipe(): Observable<Recipe[]> {
     return this.httpClient
-      .get<any>(this.foodUrl)
+      .get<any>(
+        this.foodUrl +
+          this.query +
+          '&app_id=' +
+          this.app_id +
+          '&app_key=' +
+          this.app_key +
+          '&health=' +
+          this.health +
+          '&mealType=' +
+          this.mealType
+      )
       .pipe(
         map((result) =>
           result.hits.map((result: { recipe: any }) => result.recipe)
