@@ -20,9 +20,15 @@ export class HomeComponent implements OnInit {
       next: (recipe) => {
         this.recipe = recipe;
         console.log(this.recipe);
-      }
-    })
+      },
+    });
   }
+
+  // search(){
+  //   const formData = this.form.getRawValue();
+  //   console.log(formData)
+
+  // }
 
   logout() {
     localStorage.removeItem('token');

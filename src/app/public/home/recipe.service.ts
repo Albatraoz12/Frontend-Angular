@@ -16,6 +16,12 @@ export class RecipeService {
 
   private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=`;
 
+  // search(formdData: object){
+  //   this.query = formData.query
+  //   this.mealType = formData.mealType
+  //   this.health = formData.health
+  // }
+
   getAllRecipe(): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(
