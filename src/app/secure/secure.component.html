@@ -1,7 +1,7 @@
 <h1 *ngIf="user">Hello {{ user.id }} {{ user.name | uppercase }}</h1>
 <p>Would you like to see your lists ?</p>
 
-<div class="d-flex justify-content-start align-items-center">
+<div class="ml-3">
   <ul class="nav nav-pills">
     <li class="nav-link active" [class.active]="viewMode == 'likes'">
       <a (click)="viewMode = 'likes'">Recipes You Liked</a>
@@ -12,8 +12,14 @@
   </ul>
 </div>
 
-<div [ngSwitch]="viewMode">
+<div [ngSwitch]="viewMode" class="ml-3">
   <div *ngSwitchCase="'likes'">All Recipes You Liked</div>
-  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchCase="'list'">
+    <form class="form my-3">
+      <div class="form-group">
+        <input type="text" placeholder="Title Name" />
+      </div>
+    </form>
+  </div>
   <div *ngSwitchDefault>Press some button</div>
 </div>
