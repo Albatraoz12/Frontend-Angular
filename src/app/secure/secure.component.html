@@ -20,6 +20,9 @@
         <input type="text" placeholder="Title Name" />
       </div>
     </form>
+    <ul *ngFor="let r of userlists">
+      <li>{{ r.list_name }}</li>
+    </ul>
   </div>
   <div *ngSwitchDefault>Press some button</div>
 </div>

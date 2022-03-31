@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserList } from './user-list';
+import { UserListService } from './user-list.service';
 
 @Component({
   selector: 'app-secure',
@@ -10,7 +12,12 @@ import { Router } from '@angular/router';
 export class SecureComponent implements OnInit {
   user: any;
   viewMode = 'likes';
-  constructor(private http: HttpClient, private router: Router) {}
+  userlists: UserList[] = [];
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userlistServive: UserListService
+  ) {}
 
   ngOnInit(): void {
     const headers = new HttpHeaders({
@@ -26,5 +33,10 @@ export class SecureComponent implements OnInit {
           this.router.navigate(['/login']);
         }
       );
+
+    this.userlistServive.getList().subscribe((res: any) => {
+      this.userlists = res.message.map((list: object) => list);
+      console.log(this.userlists);
+    });
   }
 }
