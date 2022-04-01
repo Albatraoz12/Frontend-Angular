@@ -20,9 +20,13 @@
         <input type="text" placeholder="Title Name" />
       </div>
     </form>
-    <ul *ngFor="let r of userlists">
-      <li>{{ r.list_name }}</li>
-    </ul>
+    <div class="card" style="width: 18rem">
+      <div class="card-header">Your Lists</div>
+      <ul class="list-group list-group-flush" *ngFor="let r of userlists">
+        <li class="list-group-item">{{ r.list_name }}</li>
+      </ul>
+    </div>
   </div>
+
   <div *ngSwitchDefault>Press some button</div>
 </div>
