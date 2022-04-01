@@ -42,8 +42,7 @@ export class SecureComponent implements OnInit {
     });
 
     this.form = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      body: new FormControl('', Validators.required),
+      list_name: new FormControl('', [Validators.required]),
     });
   }
 
@@ -55,5 +54,7 @@ export class SecureComponent implements OnInit {
     });
   }
 
-  createList() {}
+  createList() {
+    console.log(this.form.value);
+  }
 }

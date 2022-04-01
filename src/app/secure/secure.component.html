@@ -22,9 +22,14 @@
   <div style="width: 80%" *ngSwitchCase="'list'">
     <!-- Create user list here -->
 
-    <form (ngSubmit)="createList()" class="row my-3 gap-2">
+    <form [formGroup]="form" (ngSubmit)="createList()" class="row my-3 gap-2">
       <div class="col-lg-10 col-sm-3">
-        <input class="form-control" type="text" placeholder="Title Name" />
+        <input
+          formControlName="list_name"
+          class="form-control"
+          type="text"
+          placeholder="Title Name"
+        />
       </div>
       <div class="col-auto">
         <input class="btn btn-primary" type="submit" />
