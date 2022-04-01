@@ -22,7 +22,7 @@ export class RecipeService {
   //   this.health = formData.health
   // }
 
-  getAllRecipe(): Observable<Recipe[]> {
+  getAllRandom(): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(this.foodUrl)
       .pipe(map((result) => result.recipes))

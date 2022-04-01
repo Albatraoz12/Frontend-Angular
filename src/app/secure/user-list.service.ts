@@ -60,6 +60,7 @@ export class UserListService {
       .pipe(catchError(this.errorHandler));
   }
 
+  //Error handler!
   errorHandler(error: {
     error: { message: string };
     status: any;

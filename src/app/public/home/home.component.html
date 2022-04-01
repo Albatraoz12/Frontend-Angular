@@ -1,26 +1,28 @@
 <div class="container text-center col-10">
   <h1>{{ title }}</h1>
-  <form class="mb-4">
+  <form [formGroup]="form" class="mb-4" (submit)="search()">
     <input
       class="form-control form-control-sm"
+      formControlName="query"
       type="text"
       placeholder="Search Food"
     /><br />
-    <select class="mt-1 form-select form-select-sm">
-      <option>Alergies?</option>
-      <option>gluten-free</option>
+    <select formControlName="diet" class="mt-1 form-select form-select-sm">
+      <option>Gluten Free</option>
       <option>Vegan</option>
       <option>Vegetarian</option>
-      <option>egg-free</option>
+      <option>Egg Free</option>
     </select>
     <br />
-    <select class="form-select form-select-sm">
-      <option>Breakfast</option>
-      <option>Dinner</option>
-      <option>Lunch</option>
+    <select formControlName="intolerances" class="form-select form-select-sm">
+      <option>Dairy</option>
+      <option>Peanut</option>
+      <option>Grain</option>
     </select>
     <br />
-    <button type="submit" class="btn btn-primary mb-3">Search</button>
+    <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">
+      Search
+    </button>
   </form>
 
   <div
