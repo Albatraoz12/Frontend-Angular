@@ -58,7 +58,7 @@ export class SecureComponent implements OnInit {
     console.log(this.form.value);
     this.userlistServive.createList(this.form.value).subscribe((res: any) => {
       console.log('User List created successfully!');
-      // this.router.navigateByUrl('currentUrl');
+      this.form.reset();
     });
   }
 }
