@@ -14,7 +14,7 @@ export class RecipeService {
   diet: string = '';
   intolerance: string = '';
 
-  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
+  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=12`;
   private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
 
   getAllRandom(): Observable<Recipe[]> {
@@ -27,7 +27,7 @@ export class RecipeService {
   searchRecipes(formData: any): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(
-        `${this.searchApi}${this.app_key}&q=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=2`
+        `${this.searchApi}${this.app_key}&q=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=12`
       )
       .pipe(catchError(this.errorHandler));
   }
@@ -46,32 +46,3 @@ export class RecipeService {
     return throwError(errorMessage);
   }
 }
-
-// return this.httpClient
-// .get<any>(this.foodUrl)
-// .pipe(
-//   map((result) =>
-//     result.map((result: { recipes: any }) => result.recipes)
-//   )
-// )
-// .pipe(catchError(this.errorHandler));
-
-// return this.httpClient
-// .get<any>(
-//   this.foodUrl +
-//     this.query +
-//     '&app_id=' +
-//     this.app_id +
-//     '&app_key=' +
-//     this.app_key +
-//     '&health=' +
-//     this.health +
-//     '&mealType=' +
-//     this.mealType
-// )
-// .pipe(
-//   map((result) =>
-//     result.hits.map((result: { recipe: any }) => result.recipe)
-//   )
-// )
-// .pipe(catchError(this.errorHandler));

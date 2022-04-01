@@ -45,7 +45,9 @@
           <p class="card-text">
             <small class="text-muted">{{ i.title }}</small>
           </p>
-          <a class="btn btn-primary">To Recipe</a>
+          <a class="btn btn-primary" [routerLink]="['userlist/', i.id]"
+            >To Recipe</a
+          >
         </div>
       </div>
     </div>
