@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
 import { SecureComponent } from './secure/secure.component';
+import { UserListComponent } from './secure/user-list/user-list.component';
 
 @NgModule({
-  declarations: [AppComponent, SecureComponent],
+  declarations: [AppComponent, SecureComponent, UserListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

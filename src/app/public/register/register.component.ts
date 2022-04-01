@@ -28,13 +28,16 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     const formData = this.form.getRawValue();
-
-    this.http.post('http://localhost:8000/api/register', formData).subscribe(
-      (result) => {
-        console.log(result);
-        this.router.navigate(['/']);
-      },
-      (err) => console.log(err)
-    );
+    if (formData.password === formData.password_password_confirmation) {
+      this.http.post('http://localhost:8000/api/register', formData).subscribe(
+        (result) => {
+          console.log(result);
+          this.router.navigate(['/']);
+        },
+        (err) => console.log(err)
+      );
+    } else {
+      alert('Password dont match !! Try again');
+    }
   }
 }

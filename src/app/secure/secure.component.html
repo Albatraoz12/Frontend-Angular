@@ -42,7 +42,13 @@
       <div class="card-body">
         <h5 class="card-title">{{ r.list_name }}</h5>
         <p>{{ r.id }}</p>
+        <ul *ngFor="let p of listRecipies">
+          <li>{{ p.title }}</li>
+        </ul>
         <a class="btn btn-danger" (click)="deleteList(r.id)">Delete</a>
+        <button class="btn btn-primary" (click)="Recipies(r.id)">
+          See Recipes
+        </button>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserList } from './user-list';
 import { UserListService } from './user-list.service';
+import { UserListRecipes } from './user-list/user-list-recipes';
 
 @Component({
   selector: 'app-secure',
@@ -14,6 +15,7 @@ export class SecureComponent implements OnInit {
   user: any;
   viewMode = 'likes';
   userlists: UserList[] = [];
+  listRecipies: UserListRecipes[] = [];
   form!: FormGroup;
   constructor(
     private http: HttpClient,
@@ -60,5 +62,14 @@ export class SecureComponent implements OnInit {
       console.log('User List created successfully!');
       this.form.reset();
     });
+  }
+
+  Recipies(listId: number) {
+    console.log(listId);
+    this.userlistServive
+      .getListRecipes(listId)
+      .subscribe((data: UserListRecipes[]) => {
+        this.listRecipies = data;
+      });
   }
 }

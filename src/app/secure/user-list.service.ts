@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { UserList } from './user-list';
-import { UserListRecipes } from './user-list-recipes';
+import { UserListRecipes } from './user-list/user-list-recipes';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +37,13 @@ export class UserListService {
   deleteList(id: string | number) {
     return this.httpClient
       .delete<UserList[]>(this.userApi + 'removelist/' + id)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getListRecipes(listId: string | number) {
+    return this.httpClient
+      .get<any>(this.userApi + 'getrecipe/' + listId)
+      .pipe(map((result) => result.message))
       .pipe(catchError(this.errorHandler));
   }
 
