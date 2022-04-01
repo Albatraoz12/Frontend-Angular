@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
   // search(){
   //   const formData = this.form.getRawValue();
   //   console.log(formData)
-
   // }
 
   logout() {

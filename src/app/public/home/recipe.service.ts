@@ -14,7 +14,7 @@ export class RecipeService {
   health: string = 'vegan';
   mealType: string = 'Dinner';
 
-  private foodUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=`;
+  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
 
   // search(formdData: object){
   //   this.query = formData.query
@@ -24,23 +24,8 @@ export class RecipeService {
 
   getAllRecipe(): Observable<Recipe[]> {
     return this.httpClient
-      .get<any>(
-        this.foodUrl +
-          this.query +
-          '&app_id=' +
-          this.app_id +
-          '&app_key=' +
-          this.app_key +
-          '&health=' +
-          this.health +
-          '&mealType=' +
-          this.mealType
-      )
-      .pipe(
-        map((result) =>
-          result.hits.map((result: { recipe: any }) => result.recipe)
-        )
-      )
+      .get<any>(this.foodUrl)
+      .pipe(map((result) => result.recipes))
       .pipe(catchError(this.errorHandler));
   }
 
@@ -58,3 +43,32 @@ export class RecipeService {
     return throwError(errorMessage);
   }
 }
+
+// return this.httpClient
+// .get<any>(this.foodUrl)
+// .pipe(
+//   map((result) =>
+//     result.map((result: { recipes: any }) => result.recipes)
+//   )
+// )
+// .pipe(catchError(this.errorHandler));
+
+// return this.httpClient
+// .get<any>(
+//   this.foodUrl +
+//     this.query +
+//     '&app_id=' +
+//     this.app_id +
+//     '&app_key=' +
+//     this.app_key +
+//     '&health=' +
+//     this.health +
+//     '&mealType=' +
+//     this.mealType
+// )
+// .pipe(
+//   map((result) =>
+//     result.hits.map((result: { recipe: any }) => result.recipe)
+//   )
+// )
+// .pipe(catchError(this.errorHandler));

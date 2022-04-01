@@ -1,9 +1,5 @@
 export interface Recipe {
-  label: string;
+  id: number;
+  title: string;
   image: string;
-  source: string;
-  url: string;
-  ingredientLines: string[];
-  calories: number;
-  mealType: string[];
 }
