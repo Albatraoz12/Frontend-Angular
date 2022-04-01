@@ -19,12 +19,14 @@ export class UserListService {
 
   userApi: string = `http://localhost:8000/api/`;
 
+  // Getting Userlists
   getUserLists(): Observable<UserList[]> {
     return this.httpClient
       .get<UserList[]>(`${this.userApi}userlist/${localStorage.getItem('id')}`)
       .pipe(catchError(this.errorHandler));
   }
 
+  // Creating a Userlists
   createList(UserList: any): Observable<UserList> {
     return this.httpClient
       .post<UserList>(
@@ -35,11 +37,14 @@ export class UserListService {
       .pipe(catchError(this.errorHandler));
   }
 
+  //Deleteing a userlist
   deleteList(id: string | number) {
     return this.httpClient
       .delete<UserList[]>(this.userApi + 'removelist/' + id)
       .pipe(catchError(this.errorHandler));
   }
+
+  //Getting all recipes from a users list
 
   getListRecipes(listId: string | number) {
     return this.httpClient
@@ -48,11 +53,13 @@ export class UserListService {
       .pipe(catchError(this.errorHandler));
   }
 
+  //Deleting a recipe from a user list
   deleteListRecipe(id: string | number) {
     return this.httpClient
       .delete<Recipe[]>(this.userApi + 'deleterecipe/' + id)
       .pipe(catchError(this.errorHandler));
   }
+
   errorHandler(error: {
     error: { message: string };
     status: any;

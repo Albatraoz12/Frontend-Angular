@@ -48,10 +48,13 @@
         </button>
       </div>
     </div>
-    <div>
-      <ul *ngFor="let p of listRecipies">
-        <li>{{ p.title }}</li>
-      </ul>
+    <div class="d-flex gap-3" *ngFor="let p of listRecipies">
+      <p>
+        <strong>{{ p.title }}</strong>
+      </p>
+      <button class="btn btn-danger btn-sm" (click)="deleteRecipe(p.id)">
+        Delete
+      </button>
     </div>
   </div>
   <div *ngSwitchDefault>Press some button</div>
