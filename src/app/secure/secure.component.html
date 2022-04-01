@@ -16,17 +16,23 @@
 
 <div
   [ngSwitch]="viewMode"
-  class="ml-3 d-flex justify-content-center align-items-center"
-  style="width: 100%"
+  class="d-flex justify-content-center align-items-center"
 >
   <div *ngSwitchCase="'likes'">All Recipes You Liked</div>
-  <div *ngSwitchCase="'list'">
-    <form class="form my-3">
-      <div class="form-group">
-        <input type="text" placeholder="Title Name" />
-        <input type="submit" />
+  <div style="width: 80%" *ngSwitchCase="'list'">
+    <!-- Create user list here -->
+
+    <form (ngSubmit)="createList()" class="row my-3 gap-2">
+      <div class="col-lg-10 col-sm-3">
+        <input class="form-control" type="text" placeholder="Title Name" />
+      </div>
+      <div class="col-auto">
+        <input class="btn btn-primary" type="submit" />
       </div>
     </form>
+
+    <!-- User lists down here -->
+
     <div class="card w-90 mb-2" *ngFor="let r of userlists">
       <div class="card-body">
         <h5 class="card-title">{{ r.list_name }}</h5>

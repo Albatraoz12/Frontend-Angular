@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserList } from './user-list';
 import { UserListService } from './user-list.service';
@@ -13,6 +14,7 @@ export class SecureComponent implements OnInit {
   user: any;
   viewMode = 'likes';
   userlists: UserList[] = [];
+  form!: FormGroup;
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -38,6 +40,11 @@ export class SecureComponent implements OnInit {
       this.userlists = res.message.map((list: object) => list);
       console.log(this.userlists);
     });
+
+    this.form = new FormGroup({
+      title: new FormControl('', [Validators.required]),
+      body: new FormControl('', Validators.required),
+    });
   }
 
   deleteList(id: number) {
@@ -47,4 +54,6 @@ export class SecureComponent implements OnInit {
       this.router.navigate(['/secure']);
     });
   }
+
+  createList() {}
 }
