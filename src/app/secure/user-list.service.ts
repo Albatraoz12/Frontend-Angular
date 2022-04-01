@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
+import { Recipe } from '../public/home/recipe';
 import { UserList } from './user-list';
 import { UserListRecipes } from './user-list/user-list-recipes';
 
@@ -47,6 +48,11 @@ export class UserListService {
       .pipe(catchError(this.errorHandler));
   }
 
+  deleteListRecipe(id: string | number) {
+    return this.httpClient
+      .delete<Recipe[]>(this.userApi + 'deleterecipe/' + id)
+      .pipe(catchError(this.errorHandler));
+  }
   errorHandler(error: {
     error: { message: string };
     status: any;
