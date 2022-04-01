@@ -39,4 +39,12 @@ export class SecureComponent implements OnInit {
       console.log(this.userlists);
     });
   }
+
+  deleteList(id: number) {
+    this.userlistServive.deleteList(id).subscribe((res) => {
+      this.userlists = this.userlists.filter((item) => item.id !== id);
+      console.log('User list deleted successfully!');
+      this.router.navigate(['/secure']);
+    });
+  }
 }

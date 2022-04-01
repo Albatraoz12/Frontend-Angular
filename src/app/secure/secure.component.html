@@ -30,7 +30,8 @@
     <div class="card w-90 mb-2" *ngFor="let r of userlists">
       <div class="card-body">
         <h5 class="card-title">{{ r.list_name }}</h5>
-        <a class="btn btn-primary">Delete</a>
+        <p>{{ r.id }}</p>
+        <a class="btn btn-danger" (click)="deleteList(r.id)">Delete</a>
       </div>
     </div>
   </div>
