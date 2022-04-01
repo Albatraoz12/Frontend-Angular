@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedIn = localStorage.getItem('token') !== null;
-    this.recipeService.getAllRecipe().subscribe({
-      next: (recipe) => {
-        this.recipe = recipe;
-        console.log(this.recipe);
-      },
-    });
+    // this.recipeService.getAllRecipe().subscribe({
+    //   next: (recipe) => {
+    //     this.recipe = recipe;
+    //     console.log(this.recipe);
+    //   },
+    // });
   }
 
   // search(){

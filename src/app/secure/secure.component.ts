@@ -36,7 +36,7 @@ export class SecureComponent implements OnInit {
         }
       );
 
-    this.userlistServive.getList().subscribe((res: any) => {
+    this.userlistServive.getUserLists().subscribe((res: any) => {
       this.userlists = res.message.map((list: object) => list);
       console.log(this.userlists);
     });

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { UserList } from './user-list';
+import { UserListRecipes } from './user-list-recipes';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class UserListService {
 
   userApi: string = `http://localhost:8000/api/`;
 
-  getList(): Observable<UserList[]> {
+  getUserLists(): Observable<UserList[]> {
     return this.httpClient
       .get<UserList[]>(`${this.userApi}userlist/${localStorage.getItem('id')}`)
       .pipe(catchError(this.errorHandler));
