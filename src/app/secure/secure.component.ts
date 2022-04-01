@@ -64,7 +64,7 @@ export class SecureComponent implements OnInit {
     });
   }
 
-  Recipies(listId: number) {
+  GetRecipies(listId: number) {
     console.log(listId);
     this.userlistServive
       .getListRecipes(listId)
