@@ -1,30 +1,37 @@
-<h1 *ngIf="user">Hello {{ user.id }} {{ user.name | uppercase }}</h1>
-<p>Would you like to see your lists ?</p>
+<section class="d-flex justify-content-center align-items-center flex-column">
+  <h1 *ngIf="user">Hello {{ user.id }} {{ user.name | uppercase }}</h1>
+  <p>Would you like to see your lists ?</p>
 
-<div class="ml-3">
-  <ul class="nav nav-pills">
-    <li class="nav-link active" [class.active]="viewMode == 'likes'">
-      <a (click)="viewMode = 'likes'">Recipes You Liked</a>
-    </li>
-    <li class="nav-link active" [class.active]="viewMode == 'list'">
-      <a (click)="viewMode = 'list'">List View</a>
-    </li>
-  </ul>
-</div>
+  <div class="mt-3">
+    <ul class="nav nav-pills">
+      <li class="nav-link active" [class.active]="viewMode == 'likes'">
+        <a (click)="viewMode = 'likes'">Recipes You Liked</a>
+      </li>
+      <li class="nav-link active" [class.active]="viewMode == 'list'">
+        <a (click)="viewMode = 'list'">List View</a>
+      </li>
+    </ul>
+  </div>
+</section>
 
-<div [ngSwitch]="viewMode" class="ml-3">
+<div
+  [ngSwitch]="viewMode"
+  class="ml-3 d-flex justify-content-center align-items-center"
+  style="width: 100%"
+>
   <div *ngSwitchCase="'likes'">All Recipes You Liked</div>
   <div *ngSwitchCase="'list'">
     <form class="form my-3">
       <div class="form-group">
         <input type="text" placeholder="Title Name" />
+        <input type="submit" />
       </div>
     </form>
-    <div class="card" style="width: 18rem">
-      <div class="card-header">Your Lists</div>
-      <ul class="list-group list-group-flush" *ngFor="let r of userlists">
-        <li class="list-group-item">{{ r.list_name }}</li>
-      </ul>
+    <div class="card w-90 mb-2" *ngFor="let r of userlists">
+      <div class="card-body">
+        <h5 class="card-title">{{ r.list_name }}</h5>
+        <a class="btn btn-primary">Delete</a>
+      </div>
     </div>
   </div>
 
