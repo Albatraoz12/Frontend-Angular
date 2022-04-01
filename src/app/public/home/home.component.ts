@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
   form!: FormGroup;
   loggedIn = false;
   recipe: Recipe[] = [];
-
+  query: string = '';
+  diet: string = '';
+  intolerance: string = '';
   constructor(
     private recipeService: RecipeService,
     private fb: FormBuilder,
@@ -28,17 +30,21 @@ export class HomeComponent implements OnInit {
       diet: ['', Validators.required],
       intolerances: ['', Validators.required],
     });
-    // this.recipeService.getAllRandom().subscribe({
-    //   next: (recipe) => {
-    //     this.recipe = recipe;
-    //     console.log(this.recipe);
-    //   },
-    // });
+    this.recipeService.getAllRandom().subscribe({
+      next: (recipe) => {
+        this.recipe = recipe;
+        console.log(this.recipe);
+      },
+    });
   }
 
   search() {
     const formData = this.form.getRawValue();
     console.log(formData);
+    this.recipeService.searchRecipes(formData).subscribe((res: any) => {
+      this.recipe = Object(res).results;
+      console.log(this.recipe);
+    });
   }
 
   logout() {

@@ -8,16 +8,16 @@
       placeholder="Search Food"
     /><br />
     <select formControlName="diet" class="mt-1 form-select form-select-sm">
-      <option>Gluten Free</option>
-      <option>Vegan</option>
-      <option>Vegetarian</option>
-      <option>Egg Free</option>
+      <option value="gluten+free">Gluten Free</option>
+      <option value="vegan">Vegan</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="egg+free">Egg Free</option>
     </select>
     <br />
     <select formControlName="intolerances" class="form-select form-select-sm">
-      <option>Dairy</option>
-      <option>Peanut</option>
-      <option>Grain</option>
+      <option value="dairy">Dairy</option>
+      <option value="peanut">Peanut</option>
+      <option value="grain">Grain</option>
     </select>
     <br />
     <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">

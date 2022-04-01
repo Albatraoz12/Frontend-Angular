@@ -45,7 +45,6 @@ export class UserListService {
   }
 
   //Getting all recipes from a users list
-
   getListRecipes(listId: string | number) {
     return this.httpClient
       .get<any>(this.userApi + 'getrecipe/' + listId)

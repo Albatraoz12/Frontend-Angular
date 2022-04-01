@@ -8,24 +8,27 @@ import { Recipe } from './recipe';
 })
 export class RecipeService {
   constructor(private httpClient: HttpClient) {}
-  app_id: string = '7423a234';
-  app_key: string = 'a1b3d726f7ccba8b35d541c90ae0d9d6';
-  query: string = 'chicken';
-  health: string = 'vegan';
-  mealType: string = 'Dinner';
+
+  app_key: string = '585a45e21e2547dfb6c6cd369e6a76e7';
+  query: string = '';
+  diet: string = '';
+  intolerance: string = '';
 
   private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
-
-  // search(formdData: object){
-  //   this.query = formData.query
-  //   this.mealType = formData.mealType
-  //   this.health = formData.health
-  // }
+  private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
 
   getAllRandom(): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(this.foodUrl)
       .pipe(map((result) => result.recipes))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  searchRecipes(formData: any): Observable<Recipe[]> {
+    return this.httpClient
+      .get<any>(
+        `${this.searchApi}${this.app_key}&q=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=2`
+      )
       .pipe(catchError(this.errorHandler));
   }
 
