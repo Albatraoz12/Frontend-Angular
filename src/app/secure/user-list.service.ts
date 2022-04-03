@@ -67,6 +67,13 @@ export class UserListService {
       .pipe(catchError(this.errorHandler));
   }
 
+  //Delete Liked recipe
+  deleteLikedRecipe(id: string | number) {
+    return this.httpClient
+      .delete<Like[]>(this.userApi + 'delete-like/' + id)
+      .pipe(catchError(this.errorHandler));
+  }
+
   //Error handler!
   errorHandler(error: {
     error: { message: string };

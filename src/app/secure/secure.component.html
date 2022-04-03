@@ -23,8 +23,8 @@
       <div class="card-body">
         <h5 class="card-title">{{ l.title }}</h5>
         <p>{{ l.recipe_id }}</p>
-        <a class="btn btn-danger" (click)="deleteList(l.recipe_id)">Delete</a>
-        <button class="btn btn-primary" (click)="GetRecipies(l.recipe_id)">
+        <a class="btn btn-danger" (click)="deleteLiked(l.recipe_id)">Delete</a>
+        <button class="btn btn-primary" (click)="goToRecipe(l.recipe_id)">
           See Recipes
         </button>
       </div>

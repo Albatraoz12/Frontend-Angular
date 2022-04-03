@@ -89,4 +89,15 @@ export class SecureComponent implements OnInit {
       this.router.navigate(['/secure']);
     });
   }
+
+  deleteLiked(id: number) {
+    this.userlistServive.deleteLikedRecipe(id).subscribe((res) => {
+      this.userLikes = this.userLikes.filter((item) => item.recipe_id !== id);
+      console.log(this.userLikes);
+    });
+  }
+
+  goToRecipe(id: number) {
+    return this.router.navigate(['/recipe/' + id]);
+  }
 }
