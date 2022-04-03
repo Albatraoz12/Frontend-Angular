@@ -55,6 +55,7 @@ export class SecureComponent implements OnInit {
     });
   }
 
+  //let the user delete its lists.
   deleteList(id: number) {
     this.userlistServive.deleteList(id).subscribe((res) => {
       this.userlists = this.userlists.filter((item) => item.id !== id);
@@ -62,15 +63,16 @@ export class SecureComponent implements OnInit {
       this.router.navigate(['/secure']);
     });
   }
-
+  //let user create a list
   createList() {
     console.log(this.form.value);
     this.userlistServive.createList(this.form.value).subscribe((res: any) => {
       console.log('User List created successfully!');
       this.form.reset();
+      window.location.reload();
     });
   }
-
+  //This function will let the user get all hers/his recipes on hers/his lists.
   GetRecipies(listId: number) {
     console.log(listId);
     this.userlistServive
@@ -79,7 +81,7 @@ export class SecureComponent implements OnInit {
         this.listRecipies = data;
       });
   }
-
+  //this function will let user delete a recipe on his/hers list
   deleteRecipe(Recipeid: number) {
     this.userlistServive.deleteListRecipe(Recipeid).subscribe((res) => {
       this.listRecipies = this.listRecipies.filter(
@@ -89,7 +91,7 @@ export class SecureComponent implements OnInit {
       this.router.navigate(['/secure']);
     });
   }
-
+  //this function will let user delete its liked recipe
   deleteLiked(id: number) {
     this.userlistServive.deleteLikedRecipe(id).subscribe((res) => {
       this.userLikes = this.userLikes.filter((item) => item.recipe_id !== id);
