@@ -21,10 +21,22 @@
   >
     Like
   </button>
-  <!-- <select (change)="addRecipe($event.target.value)">
-    <option value="null" disabled>Select a list</option>
-    <option *ngFor="let i of userlists" value="{{ i.id }}">
-      {{ i.list_name }}
-    </option>
-  </select> -->
+  <button
+    class="btn btn-success dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton1"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Add to list
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li
+      class="dropdown-item"
+      *ngFor="let list of userlists"
+      (click)="addRecipe(list.id, recipe.id, recipe.title, recipe.image)"
+    >
+      {{ list.list_name }}
+    </li>
+  </ul>
 </section>

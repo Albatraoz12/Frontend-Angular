@@ -9,12 +9,14 @@ import { Recipe } from './recipe';
 export class RecipeService {
   constructor(private httpClient: HttpClient) {}
 
-  app_key: string = '585a45e21e2547dfb6c6cd369e6a76e7';
+  // app_key: string = '585a45e21e2547dfb6c6cd369e6a76e7';
+  app_key: string = '050742ec9ef64a719d760c22b2903868';
   query: string = '';
   diet: string = '';
   intolerance: string = '';
 
-  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
+  // private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
+  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=050742ec9ef64a719d760c22b2903868&number=2`; //Ta bort sen
   private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
 
   getAllRandom(): Observable<Recipe[]> {

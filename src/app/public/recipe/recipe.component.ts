@@ -16,6 +16,7 @@ export class RecipeComponent implements OnInit {
   id!: any;
   recipe!: Recipe;
   userlists: UserList[] = [];
+  userlistss!: UserList;
   likes: Like[] = [];
   userId: any = localStorage.getItem('id');
   form!: FormGroup;
@@ -49,8 +50,13 @@ export class RecipeComponent implements OnInit {
       });
   }
 
-  addRecipe(userlists: any) {
-    console.log(userlists);
+  addRecipe(lId: number, recipe_id: number, title: string, image: string) {
+    console.log(lId, recipe_id, title, image);
+    this.recipeService
+      .addRecipeToList(lId, recipe_id, title, image)
+      .subscribe((res: any) => {
+        console.log(res);
+      });
     // lId: number, rId: number, title: string, image: string
     //lId, rId, title, image
   }
