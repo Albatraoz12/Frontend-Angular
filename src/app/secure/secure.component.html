@@ -18,7 +18,18 @@
   [ngSwitch]="viewMode"
   class="d-flex justify-content-center align-items-center"
 >
-  <div *ngSwitchCase="'likes'">All Recipes You Liked</div>
+  <div style="width: 80%" class="my-3" *ngSwitchCase="'likes'">
+    <div class="card w-90 mb-2" *ngFor="let l of userLikes">
+      <div class="card-body">
+        <h5 class="card-title">{{ l.title }}</h5>
+        <p>{{ l.recipe_id }}</p>
+        <a class="btn btn-danger" (click)="deleteList(l.recipe_id)">Delete</a>
+        <button class="btn btn-primary" (click)="GetRecipies(l.recipe_id)">
+          See Recipes
+        </button>
+      </div>
+    </div>
+  </div>
   <div style="width: 80%" *ngSwitchCase="'list'">
     <!-- Create user list here -->
 
