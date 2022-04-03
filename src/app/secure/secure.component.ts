@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Like } from '../public/recipe/like';
 import { UserList } from './user-list';
 import { UserListService } from './user-list.service';
 import { UserListRecipes } from './user-list/user-list-recipes';
@@ -15,6 +16,7 @@ export class SecureComponent implements OnInit {
   user: any;
   viewMode = 'likes';
   userlists: UserList[] = [];
+  userLikes: Like[] = [];
   listRecipies: UserListRecipes[] = [];
   form!: FormGroup;
   constructor(
@@ -41,6 +43,11 @@ export class SecureComponent implements OnInit {
     this.userlistServive.getUserLists().subscribe((res: any) => {
       this.userlists = res.message.map((list: object) => list);
       console.log(this.userlists);
+    });
+
+    this.userlistServive.getUserLikes().subscribe((res: any) => {
+      this.userLikes = res.message.map((likes: object) => likes);
+      console.log(this.userLikes);
     });
 
     this.form = new FormGroup({

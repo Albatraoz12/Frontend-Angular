@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { Recipe } from '../public/home/recipe';
+import { Like } from '../public/recipe/like';
 import { UserList } from './user-list';
 import { UserListRecipes } from './user-list/user-list-recipes';
 
@@ -56,6 +57,13 @@ export class UserListService {
   deleteListRecipe(id: string | number) {
     return this.httpClient
       .delete<Recipe[]>(this.userApi + 'deleterecipe/' + id)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  //Fetching all the users liked recipes
+  getUserLikes() {
+    return this.httpClient
+      .get<Like[]>(`${this.userApi}get-likes/${localStorage.getItem('id')}`)
       .pipe(catchError(this.errorHandler));
   }
 
