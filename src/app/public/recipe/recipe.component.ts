@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserList } from 'src/app/secure/user-list';
 import { UserListService } from 'src/app/secure/user-list.service';
 import { Recipe } from '../home/recipe';
+import { Like } from './like';
 import { RecipeService } from './recipe.service';
 
 @Component({
@@ -14,7 +16,9 @@ export class RecipeComponent implements OnInit {
   id!: any;
   recipe!: Recipe;
   userlists: UserList[] = [];
+  likes: Like[] = [];
   userId: any = localStorage.getItem('id');
+  form!: FormGroup;
 
   constructor(
     private recipeService: RecipeService,
@@ -36,14 +40,18 @@ export class RecipeComponent implements OnInit {
     });
   }
 
-  likeRecipe(uId: number, rId: number, title: string, image: string) {
-    console.log(uId, rId, title, image);
+  like(recipe_id: number, title: string, image: string) {
+    console.log(recipe_id, title, image);
+    this.recipeService
+      .likeRecipe(recipe_id, title, image)
+      .subscribe((res: any) => {
+        console.log(res);
+      });
   }
 
   addRecipe(userlists: any) {
     console.log(userlists);
+    // lId: number, rId: number, title: string, image: string
+    //lId, rId, title, image
   }
 }
-
-// lId: number, rId: number, title: string, image: string
-//lId, rId, title, image

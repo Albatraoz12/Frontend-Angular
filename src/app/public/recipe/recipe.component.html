@@ -6,14 +6,18 @@
 />
 
 <h2 class="text-center">Instructions</h2>
-<section class="container mb-2" [innerHTML]="recipe.instructions"></section>
+<section class="container mb-2">
+  <p [innerHTML]="recipe.instructions"></p>
+</section>
 <h2 class="text-center">Summary</h2>
-<section class="container mb-2" [innerHTML]="recipe.summary"></section>
+<section class="container mb-2">
+  <p [innerHTML]="recipe.summary"></p>
+</section>
 
 <section class="d-flex justify-content-center gap-3 my-5">
   <button
     class="btn btn-primary"
-    (click)="likeRecipe(userId, recipe.id, recipe.title, recipe.image)"
+    (click)="like(recipe.id, recipe.title, recipe.image)"
   >
     Like
   </button>
