@@ -10,11 +10,17 @@
 <h2 class="text-center">Summary</h2>
 <section class="container mb-2" [innerHTML]="recipe.summary"></section>
 
-<section class="d-flex justify-content-center my-3">
+<section class="d-flex justify-content-center gap-3 my-5">
   <button
     class="btn btn-primary"
     (click)="likeRecipe(userId, recipe.id, recipe.title, recipe.image)"
   >
     Like
   </button>
+  <!-- <select (change)="addRecipe($event.target.value)">
+    <option value="null" disabled>Select a list</option>
+    <option *ngFor="let i of userlists" value="{{ i.id }}">
+      {{ i.list_name }}
+    </option>
+  </select> -->
 </section>

@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     const formData = this.form.getRawValue();
-    if (formData.password === formData.password_password_confirmation) {
+    if (formData.password === formData.password_confirmation) {
       this.http.post('http://localhost:8000/api/register', formData).subscribe(
         (result) => {
           console.log(result);
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
         },
         (err) => console.log(err)
       );
