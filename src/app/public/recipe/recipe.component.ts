@@ -12,6 +12,8 @@ export class RecipeComponent implements OnInit {
   id!: any;
   recipe!: Recipe;
 
+  userId: any = localStorage.getItem('id');
+
   constructor(
     private recipeService: RecipeService,
     router: Router,
@@ -25,5 +27,9 @@ export class RecipeComponent implements OnInit {
       this.recipe = result;
       console.log(result);
     });
+  }
+
+  likeRecipe(uId: number, rId: number, title: string, image: string) {
+    console.log(uId, rId, title, image);
   }
 }

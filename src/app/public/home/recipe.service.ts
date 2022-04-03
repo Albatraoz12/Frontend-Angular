@@ -14,7 +14,7 @@ export class RecipeService {
   diet: string = '';
   intolerance: string = '';
 
-  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=12`;
+  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
   private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
 
   getAllRandom(): Observable<Recipe[]> {

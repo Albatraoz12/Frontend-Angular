@@ -6,6 +6,15 @@
 />
 
 <h2 class="text-center">Instructions</h2>
-<section class="container" [innerHTML]="recipe.instructions"></section>
+<section class="container mb-2" [innerHTML]="recipe.instructions"></section>
 <h2 class="text-center">Summary</h2>
-<section class="container" [innerHTML]="recipe.summary"></section>
+<section class="container mb-2" [innerHTML]="recipe.summary"></section>
+
+<section class="d-flex justify-content-center my-3">
+  <button
+    class="btn btn-primary"
+    (click)="likeRecipe(userId, recipe.id, recipe.title, recipe.image)"
+  >
+    Like
+  </button>
+</section>

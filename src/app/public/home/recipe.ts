@@ -4,4 +4,5 @@ export interface Recipe {
   image: string;
   summary: string;
   instructions: string;
+  diets: string[];
 }
