@@ -14,7 +14,7 @@ import { UserListRecipes } from './user-list/user-list-recipes';
 })
 export class SecureComponent implements OnInit {
   user: any;
-  viewMode = 'likes';
+  viewMode = 'list';
   userlists: UserList[] = [];
   userLikes: Like[] = [];
   listRecipies: UserListRecipes[] = [];

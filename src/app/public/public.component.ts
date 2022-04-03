@@ -17,5 +17,6 @@ export class PublicComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
+    window.location.reload();
   }
 }

@@ -30,12 +30,12 @@ export class HomeComponent implements OnInit {
       diet: ['', Validators.required],
       intolerances: ['', Validators.required],
     });
-    this.recipeService.getAllRandom().subscribe({
-      next: (recipe) => {
-        this.recipe = recipe;
-        console.log(this.recipe);
-      },
-    });
+    // this.recipeService.getAllRandom().subscribe({
+    //   next: (recipe) => {
+    //     this.recipe = recipe;
+    //     console.log(this.recipe);
+    //   },
+    // });
   }
 
   search() {
@@ -50,5 +50,6 @@ export class HomeComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
+    window.location.reload();
   }
 }

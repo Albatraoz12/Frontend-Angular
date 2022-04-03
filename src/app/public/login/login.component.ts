@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', result.data.token);
         localStorage.setItem('id', result.data.user.id);
         this.router.navigate(['/secure']);
+        // window.location.reload(); //Testa ifall det funkar efter backend är uppe i heroku.
       },
       (error: any) => {
         console.log('error');
