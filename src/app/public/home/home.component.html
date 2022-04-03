@@ -1,4 +1,4 @@
-<div class="container text-center col-10">
+<div class="container text-center">
   <h1>{{ title }}</h1>
   <form [formGroup]="form" class="mb-4" (submit)="search()">
     <input
@@ -26,32 +26,18 @@
       Search
     </button>
   </form>
-
-  <div
-    class="card mb-3"
-    style="max-width: 540px; margin: 0 auto"
-    *ngFor="let i of recipe"
-  >
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img
-          src="{{ i.image }}"
-          class="img-fluid rounded-start"
-          style="height: 100%"
-          alt="..."
-        />
-      </div>
-      <div class="col-md-8">
+  <section class="card-group">
+    <div class="col-lg-3 mb-4 mr-3" *ngFor="let i of recipe">
+      <div class="card" style="width: 18rem">
+        <img src="{{ i.image }}" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">{{ i.id }}</h5>
-          <p class="card-text">
-            <small class="text-muted">{{ i.title }}</small>
-          </p>
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p class="card-text">{{ i.diets }}</p>
           <a class="btn btn-primary" [routerLink]="['recipe/', i.id]"
             >To Recipe</a
           >
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </div>

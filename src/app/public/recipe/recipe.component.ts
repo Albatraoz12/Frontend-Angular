@@ -20,6 +20,7 @@ export class RecipeComponent implements OnInit {
   likes: Like[] = [];
   userId: any = localStorage.getItem('id');
   form!: FormGroup;
+  isLiked: boolean = false;
 
   constructor(
     private recipeService: RecipeService,
@@ -57,7 +58,5 @@ export class RecipeComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
       });
-    // lId: number, rId: number, title: string, image: string
-    //lId, rId, title, image
   }
 }

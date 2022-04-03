@@ -29,6 +29,7 @@ export class SecureComponent implements OnInit {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
+
     this.http
       .get('http://localhost:8000/api/user', { headers: headers })
       .subscribe(
@@ -63,6 +64,7 @@ export class SecureComponent implements OnInit {
       this.router.navigate(['/secure']);
     });
   }
+
   //let user create a list
   createList() {
     console.log(this.form.value);
@@ -72,6 +74,7 @@ export class SecureComponent implements OnInit {
       window.location.reload();
     });
   }
+
   //This function will let the user get all hers/his recipes on hers/his lists.
   GetRecipies(listId: number) {
     console.log(listId);
@@ -81,6 +84,7 @@ export class SecureComponent implements OnInit {
         this.listRecipies = data;
       });
   }
+
   //this function will let user delete a recipe on his/hers list
   deleteRecipe(Recipeid: number) {
     this.userlistServive.deleteListRecipe(Recipeid).subscribe((res) => {
@@ -91,6 +95,7 @@ export class SecureComponent implements OnInit {
       this.router.navigate(['/secure']);
     });
   }
+
   //this function will let user delete its liked recipe
   deleteLiked(id: number) {
     this.userlistServive.deleteLikedRecipe(id).subscribe((res) => {
