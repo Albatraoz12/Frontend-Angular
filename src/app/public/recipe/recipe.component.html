@@ -1,6 +1,11 @@
-<p>recipe works!</p>
+<h1 class="text-center my-5">{{ recipe.title }}</h1>
+<img
+  src="{{ recipe.image }}"
+  class="img-fluid rounded mx-auto d-block mb-4"
+  alt="No image from api"
+/>
 
-<h1>{{ recipe.title }}</h1>
-<img src="{{ recipe.image }}" alt="" />
-<p>{{ recipe.instructions }}</p>
-<p>{{ recipe.summary }}</p>
+<h2 class="text-center">Instructions</h2>
+<section class="container" [innerHTML]="recipe.instructions"></section>
+<h2 class="text-center">Summary</h2>
+<section class="container" [innerHTML]="recipe.summary"></section>
