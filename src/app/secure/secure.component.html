@@ -53,16 +53,21 @@
       <div class="card-body">
         <h5 class="card-title">{{ r.list_name }}</h5>
         <p>{{ r.id }}</p>
+        <a class="btn btn-primary" (click)="GetRecipies(r.id)"> See Recipes </a>
         <a class="btn btn-danger" (click)="deleteList(r.id)">Delete</a>
-        <button class="btn btn-primary" (click)="GetRecipies(r.id)">
-          See Recipes
-        </button>
       </div>
     </div>
     <div class="d-flex align-items-center gap-3" *ngFor="let p of listRecipies">
       <p>
         <strong>{{ p.title }}</strong>
       </p>
+      <button
+        class="btn btn-primary btn-sm"
+        style="height: 2rem"
+        (click)="goToRecipe(p.id)"
+      >
+        Show
+      </button>
       <button class="btn btn-danger btn-sm" (click)="deleteRecipe(p.id)">
         Delete
       </button>
