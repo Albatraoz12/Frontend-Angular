@@ -43,7 +43,7 @@
         />
       </div>
       <div class="col-auto">
-        <input class="btn btn-primary" type="submit" />
+        <input class="btn btn-primary" type="submit" [disabled]="!form.valid" />
       </div>
     </form>
 
