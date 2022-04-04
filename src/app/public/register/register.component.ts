@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   submit() {
     const formData = this.form.getRawValue();
     if (formData.password === formData.password_confirmation) {
-      this.http.post('http://localhost:8000/api/register', formData).subscribe(
+      this.http.post('https://dinorage-api.herokuapp.com/api/register', formData).subscribe(
         (result) => {
           console.log(result);
           this.router.navigate(['/login']);

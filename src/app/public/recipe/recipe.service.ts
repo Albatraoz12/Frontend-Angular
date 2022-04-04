@@ -21,8 +21,8 @@ export class RecipeService {
     }),
   };
 
-  // private apiKey: string = '585a45e21e2547dfb6c6cd369e6a76e7';
-  private apiKey: string = '050742ec9ef64a719d760c22b2903868';
+  private apiKey: string = '585a45e21e2547dfb6c6cd369e6a76e7';
+  // private apiKey: string = '050742ec9ef64a719d760c22b2903868';
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +37,7 @@ export class RecipeService {
   likeRecipe(recipe_id: number, title: any, image: string): Observable<Like> {
     return this.http
       .post<Like>(
-        `http://localhost:8000/api/add-like/${localStorage.getItem('id')}`,
+        `https://dinorage-api.herokuapp.com/api/add-like/${localStorage.getItem('id')}`,
         JSON.stringify({ recipe_id, title, image }),
         this.httpOptions
       )
@@ -52,7 +52,7 @@ export class RecipeService {
   ) {
     return this.http
       .post<UserList>(
-        `http://localhost:8000/api/addrecipe/${lId}`,
+        `https://dinorage-api.herokuapp.com/api/addrecipe/${lId}`,
         JSON.stringify({ title, image, recipe_id }),
         this.httpOptions
       )

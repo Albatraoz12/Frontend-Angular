@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  url = 'http://localhost:8000/api/login';
+  // url = 'http://localhost:8000/api/login';
+  url = 'https://dinorage-api.herokuapp.com/api/login'
 
   ngOnInit(): void {
     this.form = this.fb.group({

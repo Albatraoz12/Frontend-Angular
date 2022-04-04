@@ -31,7 +31,7 @@ export class SecureComponent implements OnInit {
     });
 
     this.http
-      .get('http://localhost:8000/api/user', { headers: headers })
+      .get('https://dinorage-api.herokuapp.com/api/user', { headers: headers })
       .subscribe(
         (result) => (this.user = result),
         (err) => {
@@ -82,6 +82,7 @@ export class SecureComponent implements OnInit {
       .getListRecipes(listId)
       .subscribe((data: UserListRecipes[]) => {
         this.listRecipies = data;
+        console.log(data);
       });
   }
 

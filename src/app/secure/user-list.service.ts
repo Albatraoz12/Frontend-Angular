@@ -18,7 +18,7 @@ export class UserListService {
 
   constructor(private httpClient: HttpClient) {}
 
-  userApi: string = `http://localhost:8000/api/`;
+  userApi: string = `https://dinorage-api.herokuapp.com/api/`;
 
   // Getting Userlists
   getUserLists(): Observable<UserList[]> {
@@ -31,7 +31,7 @@ export class UserListService {
   createList(UserList: any): Observable<UserList> {
     return this.httpClient
       .post<UserList>(
-        `${this.userApi}createList/${localStorage.getItem('id')}`,
+        `${this.userApi}create-list/${localStorage.getItem('id')}`,
         JSON.stringify(UserList),
         this.httpOptions
       )
@@ -41,7 +41,7 @@ export class UserListService {
   //Deleteing a userlist
   deleteList(id: string | number) {
     return this.httpClient
-      .delete<UserList[]>(this.userApi + 'removelist/' + id)
+      .delete<UserList[]>(this.userApi + 'remove-list/' + id)
       .pipe(catchError(this.errorHandler));
   }
 
