@@ -64,14 +64,14 @@ export class UserListService {
   //Fetching all the users liked recipes
   getUserLikes() {
     return this.httpClient
-      .get<Like[]>(`${this.userApi}get-likes/${localStorage.getItem('id')}`)
+      .get<Like[]>(`${this.userApi}get-likes/${localStorage.getItem('id')}`, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
   //Delete Liked recipe
   deleteLikedRecipe(id: string | number) {
     return this.httpClient
-      .delete<Like[]>(this.userApi + 'delete-like/' + id)
+      .delete<Like[]>(this.userApi + 'delete-like/' + id, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
