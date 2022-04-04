@@ -42,7 +42,7 @@ export class UserListService {
   //Deleteing a userlist
   deleteList(id: string | number) {
     return this.httpClient
-      .delete<UserList[]>(this.userApi + 'remove-list/' + id)
+      .delete<UserList[]>(`${this.userApi}remove-list/${id}`, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
