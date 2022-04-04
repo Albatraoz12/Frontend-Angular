@@ -33,7 +33,7 @@ export class RecipeComponent implements OnInit {
   ngOnInit(): void {
     this.loggedIn = localStorage.getItem('token') !== null;
 
-    this.id = this.route.snapshot.params['listId'];
+    this.id = this.route.snapshot.params['recipeId'];
     console.log(this.id);
     this.recipeService.getRecipeId(this.id).subscribe((result: Recipe) => {
       this.recipe = result;

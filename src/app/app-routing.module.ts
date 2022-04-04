@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'secure', component: SecureComponent },
-      { path: 'recipe/:listId', component: RecipeComponent },
+      { path: 'recipe/:recipeId', component: RecipeComponent },
     ],
   },
 ];
