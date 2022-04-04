@@ -13,6 +13,7 @@ import { RecipeService } from './recipe.service';
   styleUrls: ['./recipe.component.css'],
 })
 export class RecipeComponent implements OnInit {
+  loggedIn: boolean = false
   id!: any;
   recipe!: Recipe;
   userlists: UserList[] = [];
@@ -30,6 +31,8 @@ export class RecipeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loggedIn = localStorage.getItem('token') !== null;
+
     this.id = this.route.snapshot.params['listId'];
     console.log(this.id);
     this.recipeService.getRecipeId(this.id).subscribe((result: Recipe) => {
