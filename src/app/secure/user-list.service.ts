@@ -49,7 +49,7 @@ export class UserListService {
   //Getting all recipes from a users list
   getListRecipes(listId: string | number) {
     return this.httpClient
-      .get<any>(this.userApi + 'getrecipe/' + listId)
+      .get<any>(this.userApi + 'getrecipe/' + listId, this.httpOptions)
       .pipe(map((result) => result.message))
       .pipe(catchError(this.errorHandler));
   }
@@ -57,7 +57,7 @@ export class UserListService {
   //Deleting a recipe from a user list
   deleteListRecipe(id: string | number) {
     return this.httpClient
-      .delete<Recipe[]>(this.userApi + 'deleterecipe/' + id)
+      .delete<Recipe[]>(this.userApi + 'deleterecipe/' + id, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
