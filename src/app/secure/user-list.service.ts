@@ -24,7 +24,7 @@ export class UserListService {
   // Getting Userlists
   getUserLists(): Observable<UserList[]> {
     return this.httpClient
-      .get<UserList[]>(`${this.userApi}userlist/${localStorage.getItem('id')}`)
+      .get<UserList[]>(`${this.userApi}userlist/${localStorage.getItem('id')}`, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
