@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //clearing the input values
     this.register = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  //method to post information to database
   submit() {
     const formData = this.register.getRawValue();
     if (formData.password === formData.password_confirmation) {
