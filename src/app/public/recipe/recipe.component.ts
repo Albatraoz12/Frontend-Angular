@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserList } from 'src/app/public/interface/user-list';
-import { UserListService } from 'src/app/secure/user-list.service';
+import { UserListService } from 'src/app/public/service/user-list.service';
 import { Recipe } from '../interface/recipe';
 import { Like } from '../interface/like';
-import { RecipeService } from './recipe.service';
+import { RecipeService } from '../service/recipe.service';
 
 @Component({
   selector: 'app-recipe',

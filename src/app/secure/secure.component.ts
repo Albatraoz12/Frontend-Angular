@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Like } from '../public/interface/like';
 import { UserList } from '../public/interface/user-list';
-import { UserListService } from './user-list.service';
+import { UserListService } from '../public/service/user-list.service';
 import { UserListRecipes } from '../public/interface/user-list-recipes';
 
 @Component({

@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { Recipe } from '../public/interface/recipe';
-import { Like } from '../public/interface/like';
-import { UserList } from '../public/interface/user-list';
-import { UserListRecipes } from '../public/interface/user-list-recipes';
+import { Recipe } from '../interface/recipe';
+import { Like } from '../interface/like';
+import { UserList } from '../interface/user-list';
+import { UserListRecipes } from '../interface/user-list-recipes';
 
 @Injectable({
   providedIn: 'root',
