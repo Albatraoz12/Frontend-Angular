@@ -20,7 +20,6 @@ export class UserListService {
 
   constructor(private httpClient: HttpClient) {}
 
-  userApi: string = `https://dinorage-api.herokuapp.com/api/`;
   private heroUrl = environment.heroUrl;
   // Getting Userlists
   getUserLists(): Observable<UserList[]> {
