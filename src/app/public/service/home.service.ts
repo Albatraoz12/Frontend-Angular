@@ -16,7 +16,6 @@ export class RecipeService {
   diet: string = '';
   intolerance: string = '';
 
-  private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
   private spoonRandom = environment.spoonRandom;
   private apiKey = environment.apiKey;
   private spoonUrl = environment.spoonUrl;

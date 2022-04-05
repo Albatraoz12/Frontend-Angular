@@ -4,6 +4,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { UserList } from 'src/app/public/interface/user-list';
 import { Recipe } from '../interface/recipe';
 import { Like } from '../interface/like';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,15 +17,9 @@ export class RecipeService {
     }),
   };
 
-  httpOptions2 = {
-    headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    }),
-  };
-
-  private apiKey: string = '585a45e21e2547dfb6c6cd369e6a76e7';
-  // private apiKey: string = '050742ec9ef64a719d760c22b2903868';
+  private apiKey = environment.apiKey;
+  private spoonUrlSinge = environment.spoonUrlSinge;
+  private heroUrl = environment.heroUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +27,7 @@ export class RecipeService {
   getRecipeId(id: number): Observable<Recipe> {
     return this.http
       .get<Recipe>(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${this.apiKey}`
+        `${this.spoonUrlSinge}${id}/information?apiKey=${this.apiKey}`
       )
       .pipe(catchError(this.errorHandler));
   }
@@ -41,9 +36,7 @@ export class RecipeService {
   likeRecipe(recipe_id: number, title: any, image: string): Observable<Like> {
     return this.http
       .post<Like>(
-        `https://dinorage-api.herokuapp.com/api/add-like/${localStorage.getItem(
-          'id'
-        )}`,
+        `${this.heroUrl}add-like/${localStorage.getItem('id')}`,
         JSON.stringify({ recipe_id, title, image }),
         this.httpOptions
       )
@@ -59,7 +52,7 @@ export class RecipeService {
   ) {
     return this.http
       .post<UserList>(
-        `https://dinorage-api.herokuapp.com/api/addrecipe/${lId}`,
+        `${this.heroUrl}addrecipe/${lId}`,
         JSON.stringify({ title, image, recipe_id }),
         this.httpOptions
       )

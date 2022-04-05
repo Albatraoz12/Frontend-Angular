@@ -5,6 +5,7 @@ import { Recipe } from '../interface/recipe';
 import { Like } from '../interface/like';
 import { UserList } from '../interface/user-list';
 import { UserListRecipes } from '../interface/user-list-recipes';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +21,12 @@ export class UserListService {
   constructor(private httpClient: HttpClient) {}
 
   userApi: string = `https://dinorage-api.herokuapp.com/api/`;
-
+  private heroUrl = environment.heroUrl;
   // Getting Userlists
   getUserLists(): Observable<UserList[]> {
     return this.httpClient
       .get<UserList[]>(
-        `${this.userApi}userlist/${localStorage.getItem('id')}`,
+        `${this.heroUrl}userlist/${localStorage.getItem('id')}`,
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));
@@ -35,7 +36,7 @@ export class UserListService {
   createList(UserList: any): Observable<UserList> {
     return this.httpClient
       .post<UserList>(
-        `${this.userApi}create-list/${localStorage.getItem('id')}`,
+        `${this.heroUrl}create-list/${localStorage.getItem('id')}`,
         JSON.stringify(UserList),
         this.httpOptions
       )
@@ -45,14 +46,14 @@ export class UserListService {
   //Deleteing a userlist
   deleteList(id: string | number) {
     return this.httpClient
-      .delete<UserList[]>(`${this.userApi}remove-list/${id}`, this.httpOptions)
+      .delete<UserList[]>(`${this.heroUrl}remove-list/${id}`, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
   //Getting all recipes from a users list
   getListRecipes(listId: string | number) {
     return this.httpClient
-      .get<any>(this.userApi + 'getrecipe/' + listId, this.httpOptions)
+      .get<any>(this.heroUrl + 'getrecipe/' + listId, this.httpOptions)
       .pipe(map((result) => result.message))
       .pipe(catchError(this.errorHandler));
   }
@@ -60,7 +61,7 @@ export class UserListService {
   //Deleting a recipe from a user list
   deleteListRecipe(id: string | number) {
     return this.httpClient
-      .delete<Recipe[]>(this.userApi + 'deleterecipe/' + id, this.httpOptions)
+      .delete<Recipe[]>(this.heroUrl + 'deleterecipe/' + id, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
@@ -68,7 +69,7 @@ export class UserListService {
   getUserLikes() {
     return this.httpClient
       .get<Like[]>(
-        `${this.userApi}get-likes/${localStorage.getItem('id')}`,
+        `${this.heroUrl}get-likes/${localStorage.getItem('id')}`,
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));
@@ -77,7 +78,7 @@ export class UserListService {
   //Delete Liked recipe
   deleteLikedRecipe(id: string | number) {
     return this.httpClient
-      .delete<Like[]>(this.userApi + 'delete-like/' + id, this.httpOptions)
+      .delete<Like[]>(this.heroUrl + 'delete-like/' + id, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
