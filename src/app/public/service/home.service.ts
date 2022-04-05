@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Recipe } from '../interface/recipe';
 
 @Injectable({
@@ -15,14 +16,15 @@ export class RecipeService {
   diet: string = '';
   intolerance: string = '';
 
-  // private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=585a45e21e2547dfb6c6cd369e6a76e7&number=2`;
-  private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=050742ec9ef64a719d760c22b2903868&number=2`; //Ta bort sen
   private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
+  private spoonRandom = environment.spoonRandom;
+  private apiKey = environment.apiKey;
+  private spoonUrl = environment.spoonUrl;
 
   //fetching random recipes from API
   getAllRandom(): Observable<Recipe[]> {
     return this.httpClient
-      .get<any>(this.foodUrl)
+      .get<any>(`${this.spoonRandom}apiKey=${this.apiKey}&number=1`)
       .pipe(map((result) => result.recipes))
       .pipe(catchError(this.errorHandler));
   }
@@ -31,7 +33,7 @@ export class RecipeService {
   searchRecipes(formData: any): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(
-        `${this.searchApi}${this.app_key}&q=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=12`
+        `${this.spoonUrl}${this.app_key}&q=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=1`
       )
       .pipe(catchError(this.errorHandler));
   }
