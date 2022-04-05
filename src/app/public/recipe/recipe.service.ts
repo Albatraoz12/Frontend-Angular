@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { UserList } from 'src/app/secure/user-list';
+import { UserList } from 'src/app/public/interface/user-list';
 import { Recipe } from '../interface/recipe';
-import { Like } from './like';
+import { Like } from '../interface/like';
 
 @Injectable({
   providedIn: 'root',

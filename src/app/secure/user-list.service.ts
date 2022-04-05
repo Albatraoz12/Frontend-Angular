@@ -2,9 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { Recipe } from '../public/interface/recipe';
-import { Like } from '../public/recipe/like';
-import { UserList } from './user-list';
-import { UserListRecipes } from './user-list/user-list-recipes';
+import { Like } from '../public/interface/like';
+import { UserList } from '../public/interface/user-list';
+import { UserListRecipes } from '../public/interface/user-list-recipes';
 
 @Injectable({
   providedIn: 'root',

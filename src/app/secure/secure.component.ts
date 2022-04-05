@@ -2,10 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Like } from '../public/recipe/like';
-import { UserList } from './user-list';
+import { Like } from '../public/interface/like';
+import { UserList } from '../public/interface/user-list';
 import { UserListService } from './user-list.service';
-import { UserListRecipes } from './user-list/user-list-recipes';
+import { UserListRecipes } from '../public/interface/user-list-recipes';
 
 @Component({
   selector: 'app-secure',

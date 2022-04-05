@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserList } from 'src/app/secure/user-list';
+import { UserList } from 'src/app/public/interface/user-list';
 import { UserListService } from 'src/app/secure/user-list.service';
 import { Recipe } from '../interface/recipe';
-import { Like } from './like';
+import { Like } from '../interface/like';
 import { RecipeService } from './recipe.service';
 
 @Component({
