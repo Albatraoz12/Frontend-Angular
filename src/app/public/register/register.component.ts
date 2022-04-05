@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  form!: FormGroup;
+  register!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({
+    this.register = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -27,15 +27,17 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    const formData = this.form.getRawValue();
+    const formData = this.register.getRawValue();
     if (formData.password === formData.password_confirmation) {
-      this.http.post('https://dinorage-api.herokuapp.com/api/register', formData).subscribe(
-        (result) => {
-          console.log(result);
-          this.router.navigate(['/login']);
-        },
-        (err) => console.log(err)
-      );
+      this.http
+        .post('https://dinorage-api.herokuapp.com/api/register', formData)
+        .subscribe(
+          (result) => {
+            console.log(result);
+            this.router.navigate(['/login']);
+          },
+          (err) => console.log(err)
+        );
     } else {
       alert('Password dont match !! Try again');
     }

@@ -3,7 +3,7 @@
 </section>
 
 <section class="container">
-  <form [formGroup]="form" class="form mt-3" (submit)="submit()">
+  <form [formGroup]="register" class="form mt-3" (submit)="submit()">
     <div class="row">
       <div class="form-group my-2">
         <input
@@ -43,7 +43,10 @@
       </div>
     </div>
 
-    <button class="btn btn-md btn-primary btn-block" [disabled]="!form.valid">
+    <button
+      class="btn btn-md btn-primary btn-block"
+      [disabled]="!register.valid"
+    >
       Create
     </button>
   </form>
