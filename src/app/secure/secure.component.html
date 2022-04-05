@@ -14,24 +14,29 @@
   </div>
 </section>
 
+<!-- User likes section -->
 <div
   [ngSwitch]="viewMode"
   class="d-flex justify-content-center align-items-center"
 >
-  <div style="width: 80%" class="my-3" *ngSwitchCase="'likes'">
-    <div class="card w-90 mb-2" *ngFor="let l of userLikes">
+  <div class="my-3" *ngSwitchCase="'likes'">
+    <div class="card mb-2" style="width: 25rem" *ngFor="let l of userLikes">
+      <img class="card-img-top" src="{{ l.image }}" alt="Card image cap" />
       <div class="card-body">
         <h5 class="card-title">{{ l.title }}</h5>
-        <p>{{ l.recipe_id }}</p>
-        <a class="btn btn-danger" (click)="deleteLiked(l.recipe_id)">Delete</a>
-        <button class="btn btn-primary" (click)="goToRecipe(l.recipe_id)">
-          See Recipes
-        </button>
+        <div class="d-flex justify-content-between">
+          <a class="btn btn-danger" (click)="deleteLiked(l.recipe_id)"
+            >Delete</a
+          >
+          <a class="btn btn-primary" (click)="goToRecipe(l.recipe_id)">
+            See Recipes
+          </a>
+        </div>
       </div>
     </div>
   </div>
   <div style="width: 80%" *ngSwitchCase="'list'">
-    <!-- Create user list here -->
+    <!-- Create user list section -->
 
     <form [formGroup]="create" (ngSubmit)="createList()" class="row my-3 gap-2">
       <div class="col-lg-10 col-sm-3">
@@ -52,7 +57,7 @@
       </div>
     </form>
 
-    <!-- User lists down here -->
+    <!-- User lists section -->
     <section>
       <h2 class="text-center mb-2">Your Lists</h2>
       <div class="card w-90 mb-2" *ngFor="let r of userlists">
