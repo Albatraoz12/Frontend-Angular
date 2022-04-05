@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { Recipe } from '../interface/recipe';
 
 @Injectable({
@@ -10,8 +10,6 @@ import { Recipe } from '../interface/recipe';
 export class RecipeService {
   constructor(private httpClient: HttpClient) {}
 
-  // app_key: string = '585a45e21e2547dfb6c6cd369e6a76e7';
-  app_key: string = '050742ec9ef64a719d760c22b2903868';
   query: string = '';
   diet: string = '';
   intolerance: string = '';
@@ -32,7 +30,7 @@ export class RecipeService {
   searchRecipes(formData: any): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(
-        `${this.spoonUrl}${this.app_key}&q=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=1`
+        `${this.spoonUrl}${this.apiKey}&query=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=2`
       )
       .pipe(catchError(this.errorHandler));
   }

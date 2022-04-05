@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
     //clearing the inputs values when entering site
     this.form = this.fb.group({
       query: ['', Validators.required],
-      diet: ['', Validators.required],
-      intolerances: ['', Validators.required],
+      diet: '',
+      intolerances: '',
     });
 
     //Fetching random recipes from API

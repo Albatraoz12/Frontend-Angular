@@ -5,7 +5,7 @@ import { Recipe } from '../interface/recipe';
 import { Like } from '../interface/like';
 import { UserList } from '../interface/user-list';
 import { UserListRecipes } from '../interface/user-list-recipes';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
