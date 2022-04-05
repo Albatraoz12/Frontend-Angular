@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { UserList } from 'src/app/secure/user-list';
-import { Recipe } from '../home/recipe';
+import { Recipe } from '../interface/recipe';
 import { Like } from './like';
 
 @Injectable({

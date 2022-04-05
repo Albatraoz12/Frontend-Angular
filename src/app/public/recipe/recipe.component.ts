@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserList } from 'src/app/secure/user-list';
 import { UserListService } from 'src/app/secure/user-list.service';
-import { Recipe } from '../home/recipe';
+import { Recipe } from '../interface/recipe';
 import { Like } from './like';
 import { RecipeService } from './recipe.service';
 

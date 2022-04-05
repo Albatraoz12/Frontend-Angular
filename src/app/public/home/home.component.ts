@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from './recipe.service';
-import { Recipe } from './recipe';
+import { Recipe } from '../interface/recipe';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 

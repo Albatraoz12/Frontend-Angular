@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { Recipe } from '../public/home/recipe';
+import { Recipe } from '../public/interface/recipe';
 import { Like } from '../public/recipe/like';
 import { UserList } from './user-list';
 import { UserListRecipes } from './user-list/user-list-recipes';
@@ -13,7 +13,7 @@ export class UserListService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     }),
   };
 
@@ -24,7 +24,10 @@ export class UserListService {
   // Getting Userlists
   getUserLists(): Observable<UserList[]> {
     return this.httpClient
-      .get<UserList[]>(`${this.userApi}userlist/${localStorage.getItem('id')}`, this.httpOptions)
+      .get<UserList[]>(
+        `${this.userApi}userlist/${localStorage.getItem('id')}`,
+        this.httpOptions
+      )
       .pipe(catchError(this.errorHandler));
   }
 
@@ -64,7 +67,10 @@ export class UserListService {
   //Fetching all the users liked recipes
   getUserLikes() {
     return this.httpClient
-      .get<Like[]>(`${this.userApi}get-likes/${localStorage.getItem('id')}`, this.httpOptions)
+      .get<Like[]>(
+        `${this.userApi}get-likes/${localStorage.getItem('id')}`,
+        this.httpOptions
+      )
       .pipe(catchError(this.errorHandler));
   }
 
