@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  form!: FormGroup;
+  login!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -18,17 +18,18 @@ export class LoginComponent implements OnInit {
   ) {}
 
   // url = 'http://localhost:8000/api/login';
-  url = 'https://dinorage-api.herokuapp.com/api/login'
+  url = 'https://dinorage-api.herokuapp.com/api/login';
 
   ngOnInit(): void {
-    this.form = this.fb.group({
+    this.login = this.fb.group({
       email: '',
       password: '',
     });
   }
 
+  //lets user log in.
   submit() {
-    const formData = this.form.getRawValue();
+    const formData = this.login.getRawValue();
 
     const data = {
       email: formData.email,
