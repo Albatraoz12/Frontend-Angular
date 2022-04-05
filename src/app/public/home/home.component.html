@@ -1,3 +1,4 @@
+<!-- Search filter -->
 <div class="container text-center">
   <h1>{{ title }}</h1>
   <form [formGroup]="form" class="mb-4" (submit)="search()">
@@ -26,6 +27,9 @@
       Search
     </button>
   </form>
+  <!-- Search filter ends -->
+
+  <!-- Cards of recipe shows -->
   <section class="card-group">
     <div class="col-lg-3 mb-4 mr-3" *ngFor="let i of recipe">
       <div class="card" style="width: 18rem">

@@ -24,12 +24,17 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //checks if user is logged in or not
     this.loggedIn = localStorage.getItem('token') !== null;
+
+    //clearing the inputs values when entering site
     this.form = this.fb.group({
       query: ['', Validators.required],
       diet: ['', Validators.required],
       intolerances: ['', Validators.required],
     });
+
+    //Fetching random recipes from API
     this.recipeService.getAllRandom().subscribe({
       next: (recipe) => {
         this.recipe = recipe;
@@ -38,6 +43,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  //method to search with the filters
   search() {
     const formData = this.form.getRawValue();
     console.log(formData);
@@ -47,6 +53,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  //method for loggin out
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');

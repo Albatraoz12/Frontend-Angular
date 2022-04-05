@@ -19,6 +19,7 @@ export class RecipeService {
   private foodUrl = `https://api.spoonacular.com/recipes/random?apiKey=050742ec9ef64a719d760c22b2903868&number=12`; //Ta bort sen
   private searchApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=`;
 
+  //fetching random recipes from API
   getAllRandom(): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(this.foodUrl)
@@ -26,6 +27,7 @@ export class RecipeService {
       .pipe(catchError(this.errorHandler));
   }
 
+  //fetching recipes from values in the form to the api
   searchRecipes(formData: any): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(
