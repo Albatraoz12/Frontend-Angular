@@ -10,8 +10,8 @@ export class PublicComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    //checks if user is online
     this.loggedIn = localStorage.getItem('token') !== null;
-    //kolla hemma om man kan lägga till ('id')
   }
 
   logout() {

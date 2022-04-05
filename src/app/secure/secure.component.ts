@@ -18,7 +18,7 @@ export class SecureComponent implements OnInit {
   userlists: UserList[] = [];
   userLikes: Like[] = [];
   listRecipies: UserListRecipes[] = [];
-  form!: FormGroup;
+  create!: FormGroup;
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -51,7 +51,7 @@ export class SecureComponent implements OnInit {
       console.log(this.userLikes);
     });
 
-    this.form = new FormGroup({
+    this.create = new FormGroup({
       list_name: new FormControl('', [Validators.required]),
     });
   }
@@ -67,10 +67,10 @@ export class SecureComponent implements OnInit {
 
   //let user create a list
   createList() {
-    console.log(this.form.value);
-    this.userlistServive.createList(this.form.value).subscribe((res: any) => {
+    console.log(this.create.value);
+    this.userlistServive.createList(this.create.value).subscribe((res: any) => {
       console.log('User List created successfully!');
-      this.form.reset();
+      this.create.reset();
       window.location.reload();
     });
   }

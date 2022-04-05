@@ -33,7 +33,7 @@
   <div style="width: 80%" *ngSwitchCase="'list'">
     <!-- Create user list here -->
 
-    <form [formGroup]="form" (ngSubmit)="createList()" class="row my-3 gap-2">
+    <form [formGroup]="create" (ngSubmit)="createList()" class="row my-3 gap-2">
       <div class="col-lg-10 col-sm-3">
         <input
           formControlName="list_name"
@@ -43,7 +43,11 @@
         />
       </div>
       <div class="col-auto">
-        <input class="btn btn-primary" type="submit" [disabled]="!form.valid" />
+        <input
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!create.valid"
+        />
       </div>
     </form>
 
