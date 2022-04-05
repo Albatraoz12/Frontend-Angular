@@ -1,46 +1,50 @@
-<h1 class="text-center">Register an Account</h1>
+<section class="container">
+  <h1 class="text-center">Register an Account</h1>
+</section>
 
-<form [formGroup]="form" class="form mt-3" (submit)="submit()">
-  <div class="row">
-    <div class="form-group my-2">
-      <input
-        type="text"
-        formControlName="name"
-        class="form-control"
-        placeholder="First Name"
-      />
+<section class="container">
+  <form [formGroup]="form" class="form mt-3" (submit)="submit()">
+    <div class="row">
+      <div class="form-group my-2">
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          placeholder="First Name"
+        />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="form-group my-2">
-      <input
-        type="email"
-        formControlName="email"
-        class="form-control"
-        placeholder="Email"
-      />
+    <div class="row">
+      <div class="form-group my-2">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email"
+        />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="form-group my-2">
-      <input
-        type="password"
-        formControlName="password"
-        class="form-control"
-        placeholder="Password"
-      />
+    <div class="row">
+      <div class="form-group my-2">
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Password"
+        />
+      </div>
+      <div class="form-group my-2">
+        <input
+          type="password"
+          formControlName="password_confirmation"
+          class="form-control"
+          placeholder="password confirmation"
+        />
+      </div>
     </div>
-    <div class="form-group my-2">
-      <input
-        type="password"
-        formControlName="password_confirmation"
-        class="form-control"
-        placeholder="password confirmation"
-      />
-    </div>
-  </div>
 
-  <button class="btn btn-md btn-primary btn-block" [disabled]="!form.valid">
-    Create
-  </button>
-</form>
+    <button class="btn btn-md btn-primary btn-block" [disabled]="!form.valid">
+      Create
+    </button>
+  </form>
+</section>
