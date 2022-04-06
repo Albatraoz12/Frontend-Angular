@@ -21,7 +21,7 @@ export class RecipeService {
   //fetching random recipes from API
   getAllRandom(): Observable<Recipe[]> {
     return this.httpClient
-      .get<any>(`${this.spoonRandom}apiKey=${this.apiKey}&number=1`)
+      .get<any>(`${this.spoonRandom}apiKey=${this.apiKey}&number=12`)
       .pipe(map((result) => result.recipes))
       .pipe(catchError(this.errorHandler));
   }
@@ -30,7 +30,7 @@ export class RecipeService {
   searchRecipes(formData: any): Observable<Recipe[]> {
     return this.httpClient
       .get<any>(
-        `${this.spoonUrl}${this.apiKey}&query=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=2`
+        `${this.spoonUrl}${this.apiKey}&query=${formData.query}&diet=${formData.diet}&intolerance=${formData.intolerance}&number=12`
       )
       .pipe(catchError(this.errorHandler));
   }
