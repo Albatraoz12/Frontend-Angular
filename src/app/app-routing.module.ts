@@ -6,6 +6,7 @@ import { PublicComponent } from './public/public.component';
 import { RecipeComponent } from './public/recipe/recipe.component';
 import { RegisterComponent } from './public/register/register.component';
 import { SecureComponent } from './secure/secure.component';
+import { UserListComponent } from './secure/user-list/user-list.component';
 // import { UserListComponent } from './secure/user-list/user-list.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'secure', component: SecureComponent },
       { path: 'recipe/:recipeId', component: RecipeComponent },
+      { path: 'secure/list/:listname/:recipeId', component: UserListComponent },
     ],
   },
 ];

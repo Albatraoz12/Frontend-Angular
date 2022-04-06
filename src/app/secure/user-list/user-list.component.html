@@ -1,1 +1,21 @@
-<p>user-list works!</p>
+<section class="d-flex justify-content-center mb-3">
+  <h1>List: {{ title }}</h1>
+</section>
+<section
+  class="d-flex justify-content-center align-items-center gap-3 mb-2"
+  *ngFor="let p of listRecipies"
+>
+  <p>
+    <strong>{{ p.title }}</strong>
+  </p>
+  <button
+    class="btn btn-primary btn-sm"
+    style="height: 2rem"
+    (click)="goToRecipe(p.recipe)"
+  >
+    Show
+  </button>
+  <button class="btn btn-danger btn-sm" (click)="deleteRecipe(p.id)">
+    Delete
+  </button>
+</section>

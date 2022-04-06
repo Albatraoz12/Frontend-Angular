@@ -31,7 +31,7 @@ export class SecureComponent implements OnInit {
     });
 
     this.http
-      .get('https://dinorage-api.herokuapp.com/api/user', { headers: headers })
+      .get('http://localhost:8000/api/user', { headers: headers })
       .subscribe(
         (result) => (this.user = result),
         (err) => {
@@ -84,17 +84,6 @@ export class SecureComponent implements OnInit {
         this.listRecipies = data;
         console.log(data);
       });
-  }
-
-  //this function will let user delete a recipe on his/hers list
-  deleteRecipe(Recipeid: number) {
-    this.userlistServive.deleteListRecipe(Recipeid).subscribe((res) => {
-      this.listRecipies = this.listRecipies.filter(
-        (item) => item.id !== Recipeid
-      );
-      console.log('User list deleted successfully!');
-      this.router.navigate(['/secure']);
-    });
   }
 
   //this function will let user delete its liked recipe
