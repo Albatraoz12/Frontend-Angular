@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   register!: FormGroup;
+
+  private heroUrl = environment.heroUrl;
 
   constructor(
     private fb: FormBuilder,
@@ -31,15 +34,13 @@ export class RegisterComponent implements OnInit {
   submit() {
     const formData = this.register.getRawValue();
     if (formData.password === formData.password_confirmation) {
-      this.http
-        .post('https://dinorage-api.herokuapp.com/api/register', formData)
-        .subscribe(
-          (result) => {
-            console.log(result);
-            this.router.navigate(['/login']);
-          },
-          (err) => console.log(err)
-        );
+      this.http.post(this.heroUrl + 'register', formData).subscribe(
+        (result) => {
+          console.log(result);
+          this.router.navigate(['/login']);
+        },
+        (err) => console.log(err)
+      );
     } else {
       alert('Password dont match !! Try again');
     }
