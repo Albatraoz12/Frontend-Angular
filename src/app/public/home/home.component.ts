@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   recipe: Recipe[] = [];
   query: string = '';
   diet: string = '';
+  type: string = '';
   intolerance: string = '';
   constructor(
     private recipeService: RecipeService,
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
       query: ['', Validators.required],
       diet: '',
       intolerances: '',
+      type: '',
     });
 
     //Fetching random recipes from API

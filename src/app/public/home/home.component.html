@@ -1,5 +1,5 @@
 <!-- Search filter -->
-<div class="container text-center">
+<section class="container text-center">
   <h1>{{ title }}</h1>
   <form [formGroup]="form" class="mb-4" (submit)="search()">
     <input
@@ -23,6 +23,15 @@
       <option value="grain">Grain</option>
     </select>
     <br />
+    <select formControlName="type" class="form-select form-select-sm">
+      <option value="" disabled>Select a type</option>
+      <option value="">None</option>
+      <option value="breakfast">Breakfast</option>
+      <option value="marinade">Marinade</option>
+      <option value="main+course">Main Course</option>
+      <option value="dessert">Dessert</option>
+    </select>
+    <br />
     <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">
       Search
     </button>
@@ -44,4 +53,4 @@
       </div>
     </div>
   </section>
-</div>
+</section>
