@@ -45,6 +45,8 @@ This project has met all its requirements but i might come back and change some 
 
 - Console.logs are disabled in live version but not here, this is due to knowing what results i get when a user like or adds a recipie.
 
+- Adding not-found-route (**) if user tries to put something into the url that dosen't exist.
+
 
 # Installation
 
