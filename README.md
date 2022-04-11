@@ -49,6 +49,8 @@ This project has met all its requirements but i might come back and change some 
 
 - Changing where I put my enviroments variables, maybe the standard enviroments.ts is better than enviroments.prod.ts.
 
+- Fix logout button
+
 
 # Installation
 
