@@ -47,6 +47,8 @@ This project has met all its requirements but i might come back and change some 
 
 - Adding not-found-route (**) if user tries to put something into the url that dosen't exist.
 
+- Changing where I put my enviroments variables, maybe the standard enviroments.ts is better than enviroments.prod.ts.
+
 
 # Installation
 
